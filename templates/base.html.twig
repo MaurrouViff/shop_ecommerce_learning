@@ -1,17 +1,46 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<!doctype html>
+<html lang="en" class="scroll-smooth h-screen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('styles/output.css') }}">
+    <link rel="icon" href="{{ asset('logo/logo.png') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="flex flex-col h-screen">
+<header>
+    <nav class="min-h-12 bg-gray-200 flex items-center justify-center">
+        <ul class="flex items-center justify-between gap-3 md:gap-5">
+            <li>
+                <a href="{{ path('app_home') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('app_magasin') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Magasin</a>
+            </li>
+            {% if app.user is defined and app.user %}
+            <li>
+                <a href="{{ path('app_mon_compte') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Mon Compte</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ path('app_login') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Connexion</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+<div class="grow">
+{% block body %}{% endblock %}
+</div>
+<footer class="flex items-center justify-center min-h-10 bg-gray-100">
+    <div class="grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-3 gap-2">
+        <a href="#" class="">Twitter</a>
+        <a href="#" class="">Instragram</a>
+        <a href="#" class="">Discord</a>
+        <a href="#" class="">Pinterest</a>
+    </div>
+</footer>
+</body>
 </html>
