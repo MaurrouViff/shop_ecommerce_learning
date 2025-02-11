@@ -3,3 +3,10 @@
 body {
     font-family: Poppings, sans-serif;
 }
+
+.nav-link {
+    @apply bg-white rounded-sm py-1.5 px-3.5 text-base outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out;
+}
+.footer-link {
+    @apply text-red-400 lg:text-xl md:text-base text-xs hover:text-red-700 hover:underline;
+}

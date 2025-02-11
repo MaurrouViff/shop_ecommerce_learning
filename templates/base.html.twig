@@ -10,37 +10,70 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body class="flex flex-col h-screen">
-<header>
-    <nav class="min-h-12 bg-gray-200 flex items-center justify-center">
-        <ul class="flex items-center justify-between gap-3 md:gap-5">
+<header class="bg-gray-200">
+    <nav class="flex items-center justify-between px-4 py-3 md:px-8">
+        <!-- Logo / Accueil -->
+        <a href="{{ path('app_home') }}" class="text-xl font-bold">Ecommerce</a>
+
+        <!-- Bouton Menu Burger (Mobile) -->
+        <button id="menu-toggle" class="block md:hidden focus:outline-none">
+            <svg class="w-8 h-8 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Menu Desktop -->
+        <ul class="hidden md:flex items-center gap-5">
             <li>
-                <a href="{{ path('app_home') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Accueil</a>
+                <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
             </li>
             <li>
-                <a href="{{ path('app_magasin') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Magasin</a>
+                <a href="{{ path('app_magasin') }}" class="nav-link">Magasin</a>
             </li>
             {% if app.user is defined and app.user %}
-            <li>
-                <a href="{{ path('app_mon_compte') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Mon Compte</a>
-            </li>
+                <li>
+                    <a href="{{ path('app_mon_compte') }}" class="nav-link">Mon Compte</a>
+                </li>
             {% else %}
-            <li>
-                <a href="{{ path('app_login') }}" class="bg-white rounded-sm lg:py-1.5 lg:px-3.5 md:px-3 md:py-1 px-2.5 py-0.5 lg:text-xl md:text-base text-xs outline-offset-0 outline-2 outline-black hover:bg-black hover:text-white duration-300 ease-in-out">Connexion</a>
-            </li>
+                <li>
+                    <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+                </li>
             {% endif %}
         </ul>
     </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-100">
+        <ul class="flex flex-col items-center space-y-4 py-4">
+            <li>
+                <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('app_magasin') }}" class="nav-link">Magasin</a>
+            </li>
+            {% if app.user is defined and app.user %}
+                <li>
+                    <a href="{{ path('app_mon_compte') }}" class="nav-link">Mon Compte</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
 </header>
 <div class="grow">
 {% block body %}{% endblock %}
 </div>
 <footer class="flex items-center justify-center min-h-10 bg-gray-100">
     <div class="grid md:grid-cols-2 grid-cols-1 lg:gap-4 md:gap-3 gap-2">
-        <a href="#" class="">Twitter</a>
-        <a href="#" class="">Instragram</a>
-        <a href="#" class="">Discord</a>
-        <a href="#" class="">Pinterest</a>
+        <a href="#" class="text-red-400 lg:text-xl md:text-base text-xs hover:text-red-700 hover:underline">Twitter</a>
+        <a href="#" class="text-red-400 lg:text-xl md:text-base text-xs hover:text-red-700 hover:underline">Instagram</a>
+        <a href="#" class="text-red-400 lg:text-xl md:text-base text-xs hover:text-red-700 hover:underline">Discord</a>
+        <a href="#" class="text-red-400 lg:text-xl md:text-base text-xs hover:text-red-700 hover:underline">Pinterest</a>
     </div>
 </footer>
 </body>
+<script type="text/javascript" src="{{ asset('js/menu-burger.js') }}"></script>
 </html>
