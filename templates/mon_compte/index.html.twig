@@ -3,5 +3,13 @@
 {% block title %}Mon Compte - Ecommerce{% endblock %}
 
 {% block body %}
-
+<div class="flex items-center justify-center flex-col">
+    <h1 class="text-red-400 text-xl sm:text-base">Mon compte</h1>
+    <p>Votre adresse électronique : <span class="text-red-700 text-lg sm:text-base">{{ app.user.userIdentifier }}</span></p>
+    <p>Votre nom : <span class="text-red-700 text-lg sm:text-base">{{ app.user.nom }}</span></p>
+</div>
+<div class="flex items-center justify-center flex-col">
+    <h2>Options :</h2>
+    <a href="{{ path('app_update_password') }}" class="">Changer le mot de passe</a>
+</div>
 {% endblock %}

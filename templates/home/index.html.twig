@@ -3,9 +3,42 @@
 {% block title %}Accueil - Ecommerce{% endblock %}
 
 {% block body %}
-<section class="min-h-[600px] flex items-center justify-center">
-    <div class="grid md:grid-cols-2 grid-cols-1">
+    <h1 class="flex items-center justify-center lg:text-2xl md:text-xl text-base">Accueil</h1>
+    <hr class="h-1.5 bg-sky-300 mt-1">
+    <section class="min-h-[600px] flex items-center justify-center space-y-6">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
+            <div class="p-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Sécurisé</h3>
+                    <p class="text-sm text-gray-700">Nous utilisons la technologie fournie par Symfony pour sécuriser vos données.</p>
+                </div>
+            </div>
 
-    </div>
-</section>
+            <div class="p-8">
+                <!-- Card 2 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Titre de la Card 2</h3>
+                    <p class="text-sm text-gray-700">Voici une description pour la deuxième card. Elle contient aussi des informations pertinentes.</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <!-- Card 3 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Titre de la Card 3</h3>
+                    <p class="text-sm text-gray-700">Description pour la troisième card. Tu peux ajouter des informations ici également.</p>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <!-- Card 4 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Titre de la Card 4</h3>
+                    <p class="text-sm text-gray-700">Description pour la quatrième card. N’hésite pas à personnaliser selon tes besoins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
+
